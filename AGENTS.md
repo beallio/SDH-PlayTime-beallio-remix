@@ -110,20 +110,21 @@ from reload, shutdown, or service-restart noise.
 The shared engine is installed at `scripts/orchestration`, with project policy
 in `orchestration.conf` and `scripts/orchestration-hooks/`.
 
-- Save implementation plans under `docs/plans/`.
-- Use `scripts/orchestration/new-plan <slug> <title>` when scaffolding an
-  orchestration plan.
+- Keep native plans in task state. For orchestration, edit the private path
+  returned by `scripts/orchestration/new-plan <slug> <title>`.
 - Fill every required section and validate with
   `scripts/orchestration/validate-plan <slug>` before implementation.
 - Use the `orchestrated-implementation` skill for a user-authorized
   plan/implement/review/finalize workflow.
-- Keep review notes under `docs/review/` and commit a review note before
-  continuing an implementer round.
+- Submit review findings through stdin with the captured run, round, plan version,
+  and completed revision. Do not create or commit plan/review/session-log files.
 - Do not start an implementer, merge, push, publish, or release merely because
   a plan was requested.
 - Before starting a new orchestration run, verify that local overrides target
   the intended base branch; stale overrides from an earlier feature must not be
   reused silently.
+- Report progress and verification briefly in chat. Private recovery state is
+  separate from disposable project caches; preserve the existing cache settings.
 
 ## 7. Implementation lifecycle
 
