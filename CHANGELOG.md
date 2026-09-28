@@ -13,6 +13,11 @@ Recommendation: for ease of reading, use the following order:
 - Changed
 - Fixed
 -->
+## [3.3.2-beallio.1] - 2026-09-27
+
+### Changed
+- Synced with upstream PlayTime 3.3.1, including updated Decky UI and other dependencies. The remix's settings and in-place plugin identity remain unchanged.
+
 ## [3.3.1-beallio.13] - 2026-08-09
 
 ### Changed

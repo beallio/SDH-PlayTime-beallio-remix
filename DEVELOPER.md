@@ -73,6 +73,11 @@ versions extend the stable version with
 `.dev.<UTC YYYYMMDD>.g<short_sha>`. The executable statement of this rule is
 [`tests/test_version_scheme.py`](tests/test_version_scheme.py).
 
+When upstream publishes a stable version, the next remix release must use a
+later core version. A prerelease such as `3.3.1-beallio.14` sorts below upstream
+`3.3.1` and cannot upgrade that installed version. For example, after upstream
+`3.3.1`, use `3.3.2-beallio.1`.
+
 ## Updating the vendored archive dependency
 
 1. Deliberately change the single pin in `requirements-vendored.txt` and record the

@@ -86,27 +86,27 @@ class VersionSchemeTests(unittest.TestCase):
             with self.subTest(a=a, b=b):
                 self.assertEqual(semver_precedence(a, b), expected)
 
-    def test_manifest_versions_agree(self) -> None:
-        self.assertEqual(manifest_version(), "3.3.1-beallio.13")
-
     def test_manifest_version_carries_no_build_metadata(self) -> None:
         self.assertNotIn(
             "+",
             manifest_version(),
-            "Decky's compare-versions ignores build metadata, so a + suffix can never trigger an update.",
+            "Decky's compare-versions ignores build metadata, so a + suffix "
+            "can never trigger an update.",
         )
 
-    def test_manifest_version_supersedes_every_published_remix_tag(self) -> None:
+    def test_manifest_version_supersedes_last_remix_and_upstream_release(self) -> None:
         version = manifest_version()
-        for published in ("3.3.0", "3.3.0+beallio.1", "3.3.0+beallio.10"):
+        for published in ("3.3.1-beallio.13", "3.3.1"):
             with self.subTest(published=published):
                 self.assertEqual(semver_precedence(version, published), 1)
 
     def test_derived_nightly_orders_between_this_release_and_the_next(self) -> None:
         version = manifest_version()
         nightly = f"{version}.dev.20260808.g1a2b3c4"
+        prefix, counter = version.rsplit(".", 1)
+        next_release = f"{prefix}.{int(counter) + 1}"
         self.assertEqual(semver_precedence(nightly, version), 1)
-        self.assertEqual(semver_precedence("3.3.1-beallio.14", nightly), 1)
+        self.assertEqual(semver_precedence(next_release, nightly), 1)
 
 
 if __name__ == "__main__":
