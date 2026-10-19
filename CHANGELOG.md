@@ -13,6 +13,12 @@ Recommendation: for ease of reading, use the following order:
 - Changed
 - Fixed
 -->
+## [3.3.3-beallio.1] - 2026-10-18
+
+### Changed
+- Synced with upstream PlayTime 3.3.2. Tracking now handles Steam Deck sleep more reliably, and covers for non-Steam games load correctly. The remix's settings and in-place plugin identity remain unchanged.
+- The remix version moves to 3.3.3 so that Decky offers it as an update over upstream 3.3.2.
+
 ## [3.3.2] - 2026-10-18
 
 ### Added

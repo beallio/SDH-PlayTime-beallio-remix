@@ -76,7 +76,7 @@ versions extend the stable version with
 When upstream publishes a stable version, the next remix release must use a
 later core version. A prerelease such as `3.3.1-beallio.14` sorts below upstream
 `3.3.1` and cannot upgrade that installed version. For example, after upstream
-`3.3.1`, use `3.3.2-beallio.1`.
+`3.3.1`, use `3.3.2-beallio.1`; after upstream `3.3.2`, use `3.3.3-beallio.1`.
 
 ## Updating the vendored archive dependency
 

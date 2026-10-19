@@ -96,7 +96,7 @@ class VersionSchemeTests(unittest.TestCase):
 
     def test_manifest_version_supersedes_last_remix_and_upstream_release(self) -> None:
         version = manifest_version()
-        for published in ("3.3.1-beallio.13", "3.3.1"):
+        for published in ("3.3.2-beallio.1", "3.3.2"):
             with self.subTest(published=published):
                 self.assertEqual(semver_precedence(version, published), 1)
 
